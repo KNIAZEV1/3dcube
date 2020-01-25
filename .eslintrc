@@ -1,0 +1,20 @@
+{
+  "extends": [
+    "airbnb",
+    "airbnb-typescript",
+    "plugin:@typescript-eslint/recommended",
+    "prettier"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "prettier",
+    "@typescript-eslint"
+  ],
+  "rules": {
+    "import/prefer-default-export": 0
+  },
+  "env": {
+    "browser": true,
+    "node": true
+  }
+}
