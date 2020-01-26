@@ -19,6 +19,15 @@ const field = document.getElementById('field');
 renderer.setSize(window.innerWidth, window.innerHeight);
 field!.appendChild(renderer.domElement);
 
+window.addEventListener('resize', () => {
+  let width = window.innerWidth;
+  let height = window.innerHeight;
+
+  renderer.setSize(width, height);
+  camera.aspect = width / height;
+  camera.updateProjectionMatrix();
+});
+
 const boxGeometry = new THREE.BoxGeometry(1, 1, 1);
 
 const boxMaterial = new THREE.MeshBasicMaterial({
