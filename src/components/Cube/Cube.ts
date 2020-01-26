@@ -3,6 +3,7 @@
  */
 
 import * as THREE from 'three';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 
 const scene = new THREE.Scene();
 
@@ -28,14 +29,38 @@ window.addEventListener('resize', () => {
   camera.updateProjectionMatrix();
 });
 
-const boxGeometry = new THREE.BoxGeometry(1, 1, 1);
+const controls = new OrbitControls(camera, renderer.domElement);
 
-const boxMaterial = new THREE.MeshBasicMaterial({
-  color: 0x9ea8ad,
-  wireframe: true,
-});
+const cubeGeometry = new THREE.BoxGeometry(1, 1, 1);
 
-const cube = new THREE.Mesh(boxGeometry, boxMaterial);
+const cubeMaterials = [
+  new THREE.MeshBasicMaterial({
+    map: new THREE.TextureLoader().load('src/assets/images/pic-1.png'),
+    side: THREE.DoubleSide,
+  }),
+  new THREE.MeshBasicMaterial({
+    map: new THREE.TextureLoader().load('src/assets/images/pic-2.png'),
+    side: THREE.DoubleSide,
+  }),
+  new THREE.MeshBasicMaterial({
+    map: new THREE.TextureLoader().load('src/assets/images/pic-3.png'),
+    side: THREE.DoubleSide,
+  }),
+  new THREE.MeshBasicMaterial({
+    map: new THREE.TextureLoader().load('src/assets/images/pic-4.png'),
+    side: THREE.DoubleSide,
+  }),
+  new THREE.MeshBasicMaterial({
+    map: new THREE.TextureLoader().load('src/assets/images/pic-5.png'),
+    side: THREE.DoubleSide,
+  }),
+  new THREE.MeshBasicMaterial({
+    map: new THREE.TextureLoader().load('src/assets/images/pic-6.png'),
+    side: THREE.DoubleSide,
+  }),
+];
+
+const cube = new THREE.Mesh(cubeGeometry, cubeMaterials);
 scene.add(cube);
 
 camera.position.z = 5;
